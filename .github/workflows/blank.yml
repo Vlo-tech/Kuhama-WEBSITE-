@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        # Exists Keep it to get the code
+        # v4 exists
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -26,10 +26,11 @@ jobs:
 
       - name: Upload to GitHub Pages
         uses: actions/upload-pages-artifact@v1 
-        # v4 is not available for this action, so use v1
+        # v1 is the latest supported version as of now
         with:
           path: ./public  # Change this if your static files are in a different folder
 
       - name: Deploy
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4 
+        # v4 exists
 
