@@ -18,14 +18,15 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        # Fetches your repository's code
+        # Exists Keep it to get the code
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
-        # Configures GitHub Pages
+        # Exists keep it 
 
       - name: Upload to GitHub Pages
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v1 
+        # v4 is not available for this action, so use v1
         with:
           path: ./public  # Change this if your static files are in a different folder
 
