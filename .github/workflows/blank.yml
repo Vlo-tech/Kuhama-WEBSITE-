@@ -16,12 +16,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3  # Updated
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3  # Updated
+        uses: actions/setup-node@v3
         with:
-          node-version: '20'  # Upgraded Node.js version
+          node-version: '20'
           cache: 'npm'
 
       - name: Install dependencies
@@ -31,7 +31,7 @@ jobs:
         run: npm run build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2  # Updated
+        uses: actions/upload-pages-artifact@v2
         with:
           path: build/
 
@@ -40,5 +40,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1 # Updated
+        uses: actions/deploy-pages@v1
 
