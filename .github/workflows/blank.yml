@@ -3,8 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main    # Runs when you push changes to the main branch
-  workflow_dispatch:   # Allows you to run the workflow manually
+      - main
 
 permissions:
   contents: read
@@ -12,25 +11,34 @@ permissions:
   id-token: write
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-      
+      - name: Checkout repository
+        uses: actions/checkout@v3  # Updated
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-        
-
-      - name: Upload to GitHub Pages
-        uses: actions/upload-pages-artifact@v1 
-        
+      - name: Set up Node.js
+        uses: actions/setup-node@v3  # Updated
         with:
-          path: ./public  # Change this if your static files are in a different folder
+          node-version: '20'  # Upgraded Node.js version
+          cache: 'npm'
 
-      - name: Deploy
-        uses: actions/deploy-pages@v4 
-        
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2  # Updated
+        with:
+          path: build/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1 # Updated
 
