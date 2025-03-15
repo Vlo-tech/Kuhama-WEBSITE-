@@ -17,5 +17,8 @@
     "url": "https://github.com/Vlo-tech/Kuhama-WEBSITE-/issues"
   },
   "homepage": "https://github.com/Vlo-tech/Kuhama-WEBSITE-#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "vite": "^2.0.0"
+  }
 }
