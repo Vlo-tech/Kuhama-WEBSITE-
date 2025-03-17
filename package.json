@@ -19,6 +19,12 @@
   "homepage": "https://github.com/Vlo-tech/Kuhama-WEBSITE-#readme",
   "description": "",
   "devDependencies": {
-    "vite": "^2.0.0"
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.14",
+    "vite": "^6.2.2"
+  },
+  "dependencies": {
+    "react-router-dom": "^7.3.0"
   }
 }
